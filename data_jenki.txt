@@ -1,0 +1,79 @@
+ejecucion automatizada jenki nuevo proyecto
+
+pipeline {
+    agent any
+
+    stages {
+        stage('CONEXION REPORSITORIO CODIGO FUENTE') {
+            steps {
+                echo 'Conexion con Git'
+                echo 'Lectura de archivos del dia'
+                echo 'Instancia de archivos'
+            }
+        }
+        
+        stage('CONECTIVIDAD SONAR') {
+            steps {
+                echo 'Conexión con SONAR'
+                echo 'Ejecución de validación de código'
+                echo 'Listar resultados de validación código'
+            }
+        }
+        
+         stage('EJECUCIÓN TEST AUTOMATICO') {
+            steps {
+                echo 'Escenario_1'
+               
+            }
+        }
+        
+        stage('DESPLIEGUE EN BITBUCKET') {
+            steps {
+                echo 'Conexión BITBUCKET'
+                echo 'Depósito de componentes en almacen'
+            }
+        }
+    }
+}
+
+EJECUCION JENKIS DE PROYECTO EN CLASE
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Preparar') {
+            steps {
+               bat 'where python'
+               bat 'python --version'
+               //bat '"C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pip install pandas'
+               //bat '"C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pip install openpyxl'
+             
+            }
+        }
+        
+        stage('READ') {
+            steps {
+
+              bat '"C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\PIPELINE_ASEGURADOS\\data_read.py'
+        
+            }
+        }
+            
+             stage('TRANSFORM') {
+            steps {
+
+              bat '"C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\PIPELINE_ASEGURADOS\\data_transform.py'
+        
+            }
+        }
+             stage('EXPORT') {
+            steps {
+
+              bat '"C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\PIPELINE_ASEGURADOS\\data_transform.py'
+        
+            }
+        }
+    }
+}
+
