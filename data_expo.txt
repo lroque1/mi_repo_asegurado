@@ -1,0 +1,5 @@
+simular resultados
+luego exportar a un archivpo excel
+
+luego a un data transformada 
+depsues tramsportarlo a la ruta C
